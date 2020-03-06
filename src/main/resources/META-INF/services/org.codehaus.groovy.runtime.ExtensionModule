@@ -1,0 +1,3 @@
+moduleName = groovy-colors
+moduleVersion = 1.0.0
+extensionClasses = com.thecodesmith.chalk.Colors
