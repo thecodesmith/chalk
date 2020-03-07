@@ -1,154 +1,157 @@
 package com.thecodesmith.chalk
 
-// @formatter:off
 class Colors {
 
-    static final String RESET        = '\033[0m'
-
-    // region text colors
-    static final String BLACK        = '\033[30m'
-    static final String RED          = '\033[31m'
-    static final String GREEN        = '\033[32m'
-    static final String YELLOW       = '\033[33m'
-    static final String BLUE         = '\033[34m'
-    static final String MAGENTA      = '\033[35m'
-    static final String CYAN         = '\033[36m'
-    static final String WHITE        = '\033[37m'
-
-    static final String BOLD_BLACK   = '\033[30;1m'
-    static final String BOLD_RED     = '\033[31;1m'
-    static final String BOLD_GREEN   = '\033[32;1m'
-    static final String BOLD_YELLOW  = '\033[33;1m'
-    static final String BOLD_BLUE    = '\033[34;1m'
-    static final String BOLD_MAGENTA = '\033[35;1m'
-    static final String BOLD_CYAN    = '\033[36;1m'
-    static final String BOLD_WHITE   = '\033[37;1m'
-    // endregion
-
-    // region background colors
-    static final String BG_BLACK = '\033[40m'
-    static final String BG_RED   = '\033[41m'
-    static final String BG_GREEN = '\033[42m'
-    static final String BG_YELLOW = '\033[43m'
-    static final String BG_BLUE = '\033[44m'
-    static final String BG_MAGENTA = '\033[45m'
-    static final String BG_CYAN = '\033[46m'
-    static final String BG_WHITE = '\033[47m'
-    // endregion
+    static final String escape = '\u001b'
+    static final String reset = "${escape}[0m"
 
     // region plain colors (8-bit)
+    static String text(String self, Color color) {
+        "${color.text}${self}${reset}"
+    }
+
+    static String foreground(String self, Color color) {
+        text(self, color)
+    }
+
     static String getBlack(String self) {
-        "$BLACK${self}$RESET"
+        text(self, Color.black)
     }
 
     static String getRed(String self) {
-        "$RED${self}$RESET"
+        text(self, Color.red)
     }
 
     static String getGreen(String self) {
-        "$GREEN${self}$RESET"
+        text(self, Color.green)
     }
 
     static String getYellow(String self) {
-        "$YELLOW${self}$RESET"
+        text(self, Color.yellow)
     }
 
     static String getBlue(String self) {
-        "$BLUE${self}$RESET"
+        text(self, Color.blue)
     }
 
     static String getMagenta(String self) {
-        "$MAGENTA${self}$RESET"
+        text(self, Color.magenta)
     }
 
     static String getCyan(String self) {
-        "$CYAN${self}$RESET"
+        text(self, Color.cyan)
     }
 
     static String getWhite(String self) {
-        "$WHITE${self}$RESET"
+        text(self, Color.white)
     }
     // endregion
 
     // region bold colors (16-bit)
+    static String bold(String self, Color color) {
+        "${color.bold}${self}${reset}"
+    }
+
     static String getBoldBlack(String self) {
-        "$BOLD_BLACK${self}$RESET"
+        bold(self, Color.black)
     }
 
     static String getBoldRed(String self) {
-        "$BOLD_RED${self}$RESET"
+        bold(self, Color.red)
     }
 
     static String getBoldGreen(String self) {
-        "$BOLD_GREEN${self}$RESET"
+        bold(self, Color.green)
     }
 
     static String getBoldYellow(String self) {
-        "$BOLD_YELLOW${self}$RESET"
+        bold(self, Color.yellow)
     }
 
     static String getBoldBlue(String self) {
-        "$BOLD_BLUE${self}$RESET"
+        bold(self, Color.blue)
     }
 
     static String getBoldMagenta(String self) {
-        "$BOLD_MAGENTA${self}$RESET"
+        bold(self, Color.magenta)
     }
 
     static String getBoldCyan(String self) {
-        "$BOLD_CYAN${self}$RESET"
+        bold(self, Color.cyan)
     }
 
     static String getBoldWhite(String self) {
-        "$BOLD_WHITE${self}$RESET"
+        bold(self, Color.white)
     }
     // endregion
 
     // region extended colors (256-bit)
     static String color(String self, code) {
-        "${twoFiftySixBit(code)}${self}$RESET"
+        "${twoFiftySixBit(code)}${self}${reset}"
     }
 
     private static String twoFiftySixBit(code) {
-        "\033[38;5;${code}m"
+        "${escape}[38;5;${code}m"
     }
     // endregion
 
     // region background colors
-    static String bg(String self, Background color) {
-        "${color}${self}$RESET"
+    static String bg(String self, Color color) {
+        "${color.background}${self}${reset}"
+    }
+
+    static String background(String self, Color color) {
+        bg(self, color)
     }
 
     static String getBlackBackground(String self) {
-        "${bg(self, Background.black)}"
+        bg(self, Color.black)
     }
 
     static String getRedBackground(String self) {
-        "${bg(self, Background.red)}"
+        bg(self, Color.red)
     }
 
     static String getGreenBackground(String self) {
-        "${bg(self, Background.green)}"
+        bg(self, Color.green)
     }
 
     static String getYellowBackground(String self) {
-        "${bg(self, Background.yellow)}"
+        bg(self, Color.yellow)
     }
 
     static String getBlueBackground(String self) {
-        "${bg(self, Background.blue)}"
+        bg(self, Color.blue)
     }
 
     static String getMagentaBackground(String self) {
-        "${bg(self, Background.magenta)}"
+        bg(self, Color.magenta)
     }
 
     static String getCyanBackground(String self) {
-        "${bg(self, Background.cyan)}"
+        bg(self, Color.cyan)
     }
 
     static String getWhiteBackground(String self) {
-        "${bg(self, Background.white)}"
+        bg(self, Color.white)
+    }
+    // endregion
+
+    // region text styles
+    static String style(String self, Style style) {
+        "${style.text}${self}${reset}"
+    }
+
+    static String getBold(String self) {
+        style(self, Style.bold)
+    }
+
+    static String getUnderlined(String self) {
+        style(self, Style.underlined)
+    }
+
+    static String getReversed(String self) {
+        style(self, Style.reversed)
     }
     // endregion
 }
