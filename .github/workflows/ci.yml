@@ -1,6 +1,6 @@
 name: CI
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -15,7 +15,7 @@ jobs:
       uses: actions/setup-java@v1.3.0
       with:
         java-version: ${{ matrix.java-version }}
-    - name: Run a one-line script
-      run: ./gradlew build
+    - name: Gradle build
+      run: ./gradlew build jacocoTestReport coveralls
       env:
         CI: true
