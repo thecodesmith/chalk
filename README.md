@@ -1,12 +1,10 @@
 # Chalk
 
-_Terminal colors for Groovy_
+_Pretty terminal colors for Groovy._
 
 Inspired by the popular JavaScript library [chalk](https://github.com/chalk/chalk), and designed for idiomatic Groovy.
 
-## Why
-
-There are already a number of terminal color libraries for Java, but they all feel like writing, well, Java. This library is designed specifically with Groovy in mind, and takes advantage of Groovy's extension modules (see [examples](https://mrhaki.blogspot.com/2013/01/groovy-goodness-adding-extra-methods.html), [docs](https://groovy-lang.org/metaprogramming.html#_extension_modules)) to provide a clean, concise experience.
+There are already a number of terminal color libraries for Java, but they all feel like writing, well, _Java_. This library is designed specifically with Groovy in mind, and takes advantage of Groovy's [extension modules](https://mrhaki.blogspot.com/2013/01/groovy-goodness-adding-extra-methods.html) to provide a clean, concise experience. Since I write most of my code in Groovy, I prefer to have an expressive API that feels more like natural language.
 
 ## Usage
 
@@ -85,3 +83,11 @@ println 'foo'.color(214)
 - `bold`
 - `underlined`
 - `reversed`
+
+## Contributing
+
+See a feature that is missing? Feel free to open an issue, or contribute a pull request!
+
+## License
+
+This library is licensed under the terms of the [Apache License, Version 2.0](http://www.apache.org/licenses/LICENSE-2.0.html).
