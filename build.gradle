@@ -41,7 +41,7 @@ config {
     bintray {
         credentials {
             username = 'thecodesmith'
-            password = project.bintrayApiKey
+            password = project.findProperty('bintrayApiKey') ?: System.getenv('BINTRAY_API_KEY') ?: 'unknown'
         }
         userOrg    = 'thecodesmith'
         name       = 'chalk'
