@@ -113,6 +113,33 @@ class ColorsSpec extends Specification {
         'reversed'   | 'foo'.reversed   | '\u001b[7mfoo\u001b[0m'
     }
 
+    def 'colors can be printed'() {
+        expect:
+        color.toString() == name
+
+        where:
+        color   | name
+        black   | 'black'
+        red     | 'red'
+        green   | 'green'
+        yellow  | 'yellow'
+        blue    | 'blue'
+        magenta | 'magenta'
+        cyan    | 'cyan'
+        white   | 'white'
+    }
+
+    def 'styles can be printed'() {
+        expect:
+        style.toString() == name
+
+        where:
+        style      | name
+        bold       | 'bold'
+        underlined | 'underlined'
+        reversed   | 'reversed'
+    }
+
     def 'dsl form matches direct form'() {
         expect:
         dsl == text
@@ -121,6 +148,12 @@ class ColorsSpec extends Specification {
         dsl                                         | text
         'foo'.text(white).bg(red).style(underlined) | 'foo'.white.redBackground.underlined
         'foo'.text(blue).bg(white).style(bold)      | 'foo'.blue.whiteBackground.bold
+    }
+
+    def 'foreground/background method names match text/bg method names'() {
+        expect:
+        'foo'.foreground(red) == 'foo'.text(red)
+        'foo'.background(red) == 'foo'.bg(red)
     }
 
     def 'visual smoke test'() {
