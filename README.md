@@ -2,6 +2,8 @@
 
 _Pretty terminal colors for Groovy._
 
+[![Coverage Status](https://coveralls.io/repos/github/thecodesmith/chalk/badge.svg)](https://coveralls.io/github/thecodesmith/chalk)
+
 Inspired by the popular JavaScript library [chalk](https://github.com/chalk/chalk), and designed for idiomatic Groovy.
 
 There are already a number of terminal color libraries for Java, but they all feel like writing, well, _Java_. This library is designed specifically with Groovy in mind, and takes advantage of Groovy's [extension modules](https://mrhaki.blogspot.com/2013/01/groovy-goodness-adding-extra-methods.html) to provide a clean, concise experience. Since I write most of my code in Groovy, I prefer to have an expressive API that feels more like natural language.
