@@ -15,7 +15,7 @@ There are already a number of terminal color libraries for Java, but they all fe
 The latest version is available from Bintray: [![Download](https://api.bintray.com/packages/thecodesmith/maven/chalk/images/download.svg?version=1.0.0-b.1)](https://bintray.com/thecodesmith/maven/chalk/1.0.0-b.1/link).
 Replace the `{version}` tags below with the latest release version.
 
-#### Using With Gradle
+### Using With Gradle
 
 ```groovy
 implementation 'com.thecodesmith:chalk:{version}'
