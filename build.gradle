@@ -1,28 +1,50 @@
 plugins {
     id 'groovy'
-    id 'java-library'
-    id 'jacoco'
-    id 'com.github.kt3k.coveralls' version '2.8.4'
+    id 'org.kordamp.gradle.groovy-project' version '0.32.0'
+    id 'org.kordamp.gradle.bintray'        version '0.32.0'
+    id 'org.kordamp.gradle.guide'          version '0.32.0'
 }
 
-repositories {
-    jcenter()
-}
-
-dependencies {
-    implementation 'org.codehaus.groovy:groovy-all:2.5.8'
-    implementation 'com.github.tomas-langer:chalk:1.0.2'
-
-    testImplementation 'org.spockframework:spock-core:1.3-groovy-2.5'
-}
-
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
+allprojects {
+    repositories {
+        jcenter()
     }
 }
 
-tasks.coveralls {
-    dependsOn 'check'
+config {
+    release = (rootProject.findProperty('release') ?: false).toBoolean()
+
+    info {
+        name        = 'chalk'
+        vendor      = 'thecodesmith'
+        description = 'Pretty terminal colors for Groovy'
+
+        links {
+            website      = 'https://github.com/thecodesmith/chalk'
+            issueTracker = 'https://github.com/thecodesmith/chalk/issues'
+            scm          = 'https://github.com/thecodesmith/chalk.git'
+        }
+
+        people {
+            person {
+                id    = 'thecodesmith'
+                name  = 'Brian Stewart'
+                roles = ['developer']
+            }
+        }
+    }
+
+    licensing {
+        enabled = false
+    }
+
+    bintray {
+        credentials {
+            username = 'thecodesmith'
+            password = project.bintrayApiKey
+        }
+        userOrg    = 'thecodesmith'
+        name       = 'chalk'
+        githubRepo = 'thecodesmith/chalk'
+    }
 }

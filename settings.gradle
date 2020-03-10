@@ -1,1 +1,9 @@
-rootProject.name = 'chalk'
+plugins {
+    id 'org.kordamp.gradle.settings' version '0.32.0'
+}
+
+rootProject.name = 'chalk-project'
+
+projects {
+    directories = ['docs', 'subprojects']
+}
