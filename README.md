@@ -12,13 +12,28 @@ There are already a number of terminal color libraries for Java, but they all fe
 
 ## Usage
 
+The latest version is available from Bintray: [![Download](https://api.bintray.com/packages/thecodesmith/maven/chalk/images/download.svg?version=1.0.0-b.1)](https://bintray.com/thecodesmith/maven/chalk/1.0.0-b.1/link).
+Replace the `{version}` tags below with the latest release version.
+
+#### Using With Gradle
+
+```groovy
+implementation 'com.thecodesmith:chalk:{version}'
+```
+
+### Using With Groovy @Grab
+
+```groovy
+@Grab('com.thecodesmith:chalk:{version}')
+```
+
+### Methods
+
 This library makes additional color methods available directly on the `String` class. Here's an example:
 
 ```groovy
 println 'Hello, World!'.green.bold.underlined
 ```
-
-### Methods
 
 These are implemented as getters on the `String` class, so the full form is like `'foo'.getGreen()`, but of course with Groovy we can use the property-style accessor and shorten it to `'foo'.green`.
 
