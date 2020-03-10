@@ -42,7 +42,7 @@ jobs:
       with:
         java-version: 13.x
     - name:
-      run: ./gradlew bintrayUpload --dry-run
+      run: ./gradlew bintrayUpload
       env:
         CI: true
         BINTRAY_API_KEY: ${{ secrets.BINTRAY_API_KEY }}
