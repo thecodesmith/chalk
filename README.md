@@ -2,6 +2,7 @@
 
 _Pretty terminal colors for Groovy._
 
+![CI](https://github.com/thecodesmith/chalk/workflows/CI/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/thecodesmith/chalk/badge.svg)](https://coveralls.io/github/thecodesmith/chalk)
 [![Download](https://api.bintray.com/packages/thecodesmith/maven/chalk/images/download.svg)](https://bintray.com/thecodesmith/maven/chalk/_latestVersion)
 
