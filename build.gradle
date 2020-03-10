@@ -35,16 +35,45 @@ config {
     }
 
     licensing {
-        enabled = false
+        licenses {
+            license {
+                id = 'MIT'
+            }
+        }
     }
 
     bintray {
+        userOrg    = 'thecodesmith'
+        name       = 'chalk'
+        repo       = 'maven'
+        githubRepo = 'thecodesmith/chalk'
         credentials {
             username = 'thecodesmith'
             password = project.findProperty('bintrayApiKey') ?: System.getenv('BINTRAY_API_KEY') ?: 'unknown'
         }
-        userOrg    = 'thecodesmith'
-        name       = 'chalk'
-        githubRepo = 'thecodesmith/chalk'
+    }
+
+    docs {
+        javadoc {
+            enabled = false
+        }
+
+        groovydoc {
+            enabled = true
+            replaceJavadoc = true
+        }
+    }
+}
+
+subprojects {
+    config {
+        bintray {
+            enabled = true
+        }
+    }
+
+    compileGroovy {
+        sourceCompatibility = project.sourceCompatibility
+        targetCompatibility = project.targetCompatibility
     }
 }

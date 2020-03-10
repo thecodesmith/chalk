@@ -3,6 +3,7 @@
 _Pretty terminal colors for Groovy._
 
 [![Coverage Status](https://coveralls.io/repos/github/thecodesmith/chalk/badge.svg)](https://coveralls.io/github/thecodesmith/chalk)
+[![Download](https://api.bintray.com/packages/thecodesmith/maven/chalk/images/download.svg)](https://bintray.com/thecodesmith/maven/chalk/_latestVersion)
 
 Inspired by the popular JavaScript library [chalk](https://github.com/chalk/chalk), and designed for idiomatic Groovy.
 
