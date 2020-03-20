@@ -9,6 +9,20 @@ import static com.thecodesmith.chalk.Style.*
 // @formatter:off
 class ColorsSpec extends Specification {
 
+    def '8-bit colors via static methods'() {
+        expect:
+        verifyAll {
+            Colors.black('foo')   == colorized('foo', '30m')
+            Colors.red('foo')     == colorized('foo', '31m')
+            Colors.green('foo')   == colorized('foo', '32m')
+            Colors.yellow('foo')  == colorized('foo', '33m')
+            Colors.blue('foo')    == colorized('foo', '34m')
+            Colors.magenta('foo') == colorized('foo', '35m')
+            Colors.cyan('foo')    == colorized('foo', '36m')
+            Colors.white('foo')   == colorized('foo', '37m')
+        }
+    }
+
     def '8-bit colors are available on string objects'() {
         expect:
         verifyAll {

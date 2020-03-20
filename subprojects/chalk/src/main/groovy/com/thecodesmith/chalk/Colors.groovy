@@ -5,6 +5,40 @@ class Colors {
     static final String escape = '\u001b'
     static final String reset = "${escape}[0m"
 
+    // region plain colors (8-bit) static methods
+    static String black(String s) {
+        text(s, Color.black)
+    }
+
+    static String red(String s) {
+        text(s, Color.red)
+    }
+
+    static String green(String s) {
+        text(s, Color.green)
+    }
+
+    static String yellow(String s) {
+        text(s, Color.yellow)
+    }
+
+    static String blue(String s) {
+        text(s, Color.blue)
+    }
+
+    static String magenta(String s) {
+        text(s, Color.magenta)
+    }
+
+    static String cyan(String s) {
+        text(s, Color.cyan)
+    }
+
+    static String white(String s) {
+        text(s, Color.white)
+    }
+    // endregion
+
     // region plain colors (8-bit)
     static String text(String self, Color color) {
         "${color.text}${self}${reset}"
